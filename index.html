@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alia — Support, on standby</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --ink:#12141c;
+    --ink-raised:#1a1e29;
+    --ink-line:#2a3040;
+    --paper:#f2efe6;
+    --paper-dim:#c9c7bd;
+    --signal:#5eead4;
+    --signal-dim:#3a5f5a;
+    --amber:#f2b84b;
+    --radius:14px;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    height:100%;
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:24px 16px;
+  }
+
+  .app{
+    width:100%;
+    max-width:640px;
+    height:calc(100vh - 48px);
+    max-height:880px;
+    display:flex;
+    flex-direction:column;
+    background:var(--ink-raised);
+    border:1px solid var(--ink-line);
+    border-radius:20px;
+    overflow:hidden;
+  }
+
+  /* ---- header ---- */
+  header{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:20px 22px;
+    border-bottom:1px solid var(--ink-line);
+    flex-shrink:0;
+  }
+
+  .avatar{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--signal), var(--signal-dim));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:17px;
+    color:var(--ink);
+    flex-shrink:0;
+  }
+
+  .header-text h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:20px;
+    margin:0;
+    letter-spacing:0.2px;
+  }
+
+  .status-line{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11px;
+    color:var(--paper-dim);
+    letter-spacing:0.4px;
+    text-transform:uppercase;
+    margin-top:2px;
+  }
+
+  .dot-live{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--signal);
+    box-shadow:0 0 0 3px rgba(94,234,212,0.15);
+  }
+
+  /* ---- messages ---- */
+  .messages{
+    flex:1;
+    overflow-y:auto;
+    padding:22px;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  .messages::-webkit-scrollbar{ width:6px; }
+  .messages::-webkit-scrollbar-thumb{ background:var(--ink-line); border-radius:3px; }
+
+  .row{
+    display:flex;
+    max-width:88%;
+  }
+
+  .row.user{ align-self:flex-end; justify-content:flex-end; }
+  .row.alia{ align-self:flex-start; }
+
+  .bubble-user{
+    background:var(--signal);
+    color:var(--ink);
+    padding:11px 16px;
+    border-radius:16px 16px 4px 16px;
+    font-size:14.5px;
+    line-height:1.5;
+  }
+
+  /* Alia's replies read as a support ticket stub — the perforation + status
+     dot is a real signal: green means resolved directly, amber means it was
+     routed to a human. That's the one deliberate structural device here. */
+  .ticket{
+    position:relative;
+    background:var(--ink);
+    border:1px solid var(--ink-line);
+    border-radius:4px var(--radius) var(--radius) 4px;
+    padding:13px 16px 13px 20px;
+    font-size:14.5px;
+    line-height:1.6;
+  }
+
+  .ticket::before{
+    content:'';
+    position:absolute;
+    left:-1px;
+    top:0;
+    bottom:0;
+    width:3px;
+    border-radius:4px 0 0 4px;
+    background:var(--status-color, var(--signal));
+  }
+
+  .ticket-meta{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    margin-bottom:6px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:10.5px;
+    letter-spacing:0.5px;
+    text-transform:uppercase;
+    color:var(--paper-dim);
+  }
+
+  .ticket-meta .dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--status-color, var(--signal));
+  }
+
+  /* ---- typing indicator ---- */
+  .typing{
+    display:flex;
+    gap:4px;
+    padding:14px 16px;
+    background:var(--ink);
+    border:1px solid var(--ink-line);
+    border-radius:4px var(--radius) var(--radius) 4px;
+    width:fit-content;
+  }
+  .typing span{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--paper-dim);
+    animation:pulse 1.1s infinite ease-in-out;
+  }
+  .typing span:nth-child(2){ animation-delay:0.15s; }
+  .typing span:nth-child(3){ animation-delay:0.3s; }
+  @keyframes pulse{
+    0%,60%,100%{ opacity:0.3; transform:translateY(0); }
+    30%{ opacity:1; transform:translateY(-2px); }
+  }
+
+  /* ---- quick prompts ---- */
+  .quick-prompts{
+    display:flex;
+    gap:8px;
+    padding:0 22px 14px;
+    flex-wrap:wrap;
+    flex-shrink:0;
+  }
+  .quick-prompts button{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:var(--paper-dim);
+    background:transparent;
+    border:1px solid var(--ink-line);
+    border-radius:20px;
+    padding:6px 12px;
+    cursor:pointer;
+    transition:border-color 0.15s, color 0.15s;
+  }
+  .quick-prompts button:hover{
+    border-color:var(--signal-dim);
+    color:var(--paper);
+  }
+
+  /* ---- input ---- */
+  .input-row{
+    display:flex;
+    gap:10px;
+    padding:16px 18px;
+    border-top:1px solid var(--ink-line);
+    flex-shrink:0;
+  }
+
+  .input-row input{
+    flex:1;
+    background:var(--ink);
+    border:1px solid var(--ink-line);
+    border-radius:24px;
+    padding:12px 18px;
+    color:var(--paper);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:14.5px;
+    outline:none;
+    transition:border-color 0.15s;
+  }
+  .input-row input:focus{ border-color:var(--signal-dim); }
+  .input-row input::placeholder{ color:var(--paper-dim); }
+
+  .input-row button{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:none;
+    background:var(--signal);
+    color:var(--ink);
+    font-size:17px;
+    cursor:pointer;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:transform 0.1s, opacity 0.15s;
+  }
+  .input-row button:hover:not(:disabled){ transform:scale(1.05); }
+  .input-row button:disabled{ opacity:0.4; cursor:not-allowed; }
+
+  .error-note{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:11.5px;
+    color:#e07a5f;
+    padding:0 22px 10px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .typing span{ animation:none; opacity:0.7; }
+  }
+
+  @media (max-width:480px){
+    body{ padding:0; }
+    .app{ height:100vh; max-height:none; border-radius:0; border:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <header>
+    <div class="avatar">A</div>
+    <div class="header-text">
+      <h1>Alia</h1>
+      <div class="status-line"><span class="dot-live"></span>Support, on standby</div>
+    </div>
+  </header>
+
+  <div class="messages" id="messages"></div>
+  <div class="error-note" id="errorNote" style="display:none;"></div>
+
+  <div class="quick-prompts">
+    <button type="button" data-q="How do I reset my password?">Reset password</button>
+    <button type="button" data-q="What's your refund policy?">Refund policy</button>
+    <button type="button" data-q="Do you ship internationally?">Shipping</button>
+  </div>
+
+  <div class="input-row">
+    <input id="questionInput" type="text" placeholder="Ask Alia anything…" autocomplete="off">
+    <button id="sendBtn" aria-label="Send">→</button>
+  </div>
+</div>
+
+<script>
+  const WEBHOOK_URL = "https://cloud.activepieces.com/api/v1/webhooks/99SjiEeABUksr7iIo3Mhg/sync";
+
+  const messagesEl = document.getElementById('messages');
+  const inputEl = document.getElementById('questionInput');
+  const sendBtn = document.getElementById('sendBtn');
+  const errorNote = document.getElementById('errorNote');
+
+  function scrollToBottom(){
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addUserMessage(text){
+    const row = document.createElement('div');
+    row.className = 'row user';
+    row.innerHTML = `<div class="bubble-user"></div>`;
+    row.querySelector('.bubble-user').textContent = text;
+    messagesEl.appendChild(row);
+    scrollToBottom();
+  }
+
+  function addTypingIndicator(){
+    const row = document.createElement('div');
+    row.className = 'row alia';
+    row.id = 'typingRow';
+    row.innerHTML = `<div class="typing"><span></span><span></span><span></span></div>`;
+    messagesEl.appendChild(row);
+    scrollToBottom();
+  }
+
+  function removeTypingIndicator(){
+    const row = document.getElementById('typingRow');
+    if (row) row.remove();
+  }
+
+  // Heuristic: the flow doesn't expose the escalate flag directly in the
+  // sync response, so we infer it from the reply text. Good enough for a
+  // visual cue; the real source of truth is the Google Sheets log.
+  function looksEscalated(text){
+    return /specialist|closer look|team member|forward(ed)? (your|this)/i.test(text);
+  }
+
+  function addAliaMessage(text){
+    const escalated = looksEscalated(text);
+    const row = document.createElement('div');
+    row.className = 'row alia';
+    row.innerHTML = `
+      <div class="ticket" style="--status-color: ${escalated ? 'var(--amber)' : 'var(--signal)'}">
+        <div class="ticket-meta">
+          <span class="dot"></span>${escalated ? 'Routed to a specialist' : 'Answered directly'}
+        </div>
+        <div class="ticket-body"></div>
+      </div>`;
+    row.querySelector('.ticket-body').textContent = text;
+    messagesEl.appendChild(row);
+    scrollToBottom();
+  }
+
+  async function sendQuestion(question){
+    if (!question.trim()) return;
+
+    errorNote.style.display = 'none';
+    addUserMessage(question);
+    inputEl.value = '';
+    inputEl.disabled = true;
+    sendBtn.disabled = true;
+    addTypingIndicator();
+
+    try{
+      const formData = new FormData();
+      formData.append('question', question);
+
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!res.ok) throw new Error(`Request failed (${res.status})`);
+
+      const data = await res.json();
+      removeTypingIndicator();
+      addAliaMessage(data.value || "I didn't get a response — try asking again.");
+    } catch (err){
+      removeTypingIndicator();
+      errorNote.textContent = `Couldn't reach Alia — ${err.message}. Try again.`;
+      errorNote.style.display = 'block';
+    } finally {
+      inputEl.disabled = false;
+      sendBtn.disabled = false;
+      inputEl.focus();
+    }
+  }
+
+  sendBtn.addEventListener('click', () => sendQuestion(inputEl.value));
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') sendQuestion(inputEl.value);
+  });
+
+  document.querySelectorAll('.quick-prompts button').forEach(btn => {
+    btn.addEventListener('click', () => sendQuestion(btn.dataset.q));
+  });
+
+  // Greeting on load
+  window.addEventListener('DOMContentLoaded', () => {
+    addAliaMessage("I'm Alia, your friendly support assistant. Nice to meet you — what can I help you with today?");
+  });
+</script>
+
+</body>
+</html>

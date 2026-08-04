@@ -1,0 +1,101 @@
+Name,Content,Category
+How do I reset my password?,"Go to Settings > Security > Reset Password. You'll receive an email with a reset link, valid for 24 hours.",Account
+How do I change my email address?,"Go to Settings > Account > Email, enter the new address, and confirm via the verification link sent to it.",Account
+How do I delete my account?,Go to Settings > Account > Delete Account. This is permanent and removes all your data after a 14-day grace period.,Account
+Can I have multiple users on one account?,"Yes, Team and Business plans support multiple users. Go to Settings > Team to invite members.",Account
+How do I change my username?,Go to Settings > Profile > Username. Usernames can be changed once every 30 days.,Account
+"I didn't receive my verification email, what should I do?","Check your spam folder first. If it's not there, click 'Resend verification email' on the login page. Emails can take up to 10 minutes to arrive.",Account
+How do I enable two-factor authentication?,Go to Settings > Security > Two-Factor Authentication and follow the setup instructions using an authenticator app.,Account
+Can I merge two accounts?,"We don't support automatic account merging, but our support team can manually transfer data between accounts on request.",Account
+How do I update my profile picture?,"Go to Settings > Profile > Photo and upload a new image. Supported formats are JPG and PNG, up to 5MB.",Account
+What happens to my data if I cancel my account?,"Your data is retained for 30 days after cancellation in case you want to reactivate, then permanently deleted.",Account
+How do I change my account's time zone?,Go to Settings > Preferences > Time Zone and select your local time zone from the dropdown.,Account
+Can I use the same email for two accounts?,"No, each email address can only be linked to one account. Use a different email or delete the existing account first.",Account
+How do I log out of all devices?,Go to Settings > Security > Active Sessions and click 'Log out of all devices'.,Account
+Why is my account locked?,Accounts are temporarily locked after 5 failed login attempts for security. Wait 15 minutes or reset your password to unlock it.,Account
+How do I transfer account ownership?,"Go to Settings > Team > Ownership Transfer. Only the current owner can initiate this, and the new owner must accept via email.",Account
+What's your refund policy?,"Refunds are available within 30 days of purchase, processed to the original payment method within 5-7 business days.",Billing
+How do I cancel my subscription?,Go to Settings > Billing > Cancel Plan. Your access continues until the end of the current billing period.,Billing
+Do you offer a free trial?,"Yes, all new accounts get a 14-day free trial with full feature access, no credit card required.",Billing
+What payment methods do you accept?,"We accept all major credit cards, PayPal, and for annual plans, bank transfer on request.",Billing
+How do I update my payment method?,Go to Settings > Billing > Payment Method and enter your new card details.,Billing
+Why was I charged twice this month?,"This usually happens if you upgraded mid-cycle, which triggers a prorated charge alongside the regular renewal. Check your invoice history for details.",Billing
+Do you offer discounts for annual billing?,"Yes, annual plans include a 20% discount compared to monthly billing.",Billing
+Can I get an invoice for my purchase?,"Yes, invoices are automatically emailed after each payment and are also available under Settings > Billing > Invoices.",Billing
+What happens if my payment fails?,"We'll retry the payment 3 times over 7 days. If it still fails, your account is downgraded to the free plan until payment is updated.",Billing
+Do you offer student or nonprofit discounts?,"Yes, we offer 50% off for verified students and registered nonprofits. Apply through Settings > Billing > Discounts.",Billing
+Can I downgrade my plan mid-cycle?,"Yes, downgrades take effect at the start of your next billing cycle, and you keep current features until then.",Billing
+Is there a setup fee?,"No, there are no setup fees on any plan.",Billing
+How do I add a VAT/tax ID to my invoice?,Go to Settings > Billing > Tax Information and enter your VAT or tax ID before your next billing cycle.,Billing
+What currency am I billed in?,Billing currency is determined by your account's country setting at signup and shown at checkout.,Billing
+Can I pause my subscription instead of cancelling?,"Yes, Business plans support a 3-month pause option. Go to Settings > Billing > Pause Subscription.",Billing
+Do you ship internationally?,"Yes, we ship to over 40 countries. International orders take 7-14 business days.",Shipping
+Can I change my order after placing it?,"Orders can be modified within 1 hour of placing them by contacting support. After that, the order is locked for processing.",Shipping
+How much does shipping cost?,Domestic shipping is free on orders over $50; otherwise it's a flat $5.99. International rates vary by destination and are shown at checkout.,Shipping
+How do I track my order?,You'll receive a tracking link by email once your order ships. You can also find it under Orders > Order History.,Shipping
+What if my package arrives damaged?,"Contact support within 7 days of delivery with photos of the damage, and we'll send a free replacement.",Shipping
+Can I change my shipping address after ordering?,"Yes, if the order hasn't shipped yet. Contact support immediately with your new address.",Shipping
+Do you offer express shipping?,"Yes, express shipping (2-3 business days) is available at checkout for an additional fee.",Shipping
+What happens if my package is lost?,"If tracking shows no movement for 10+ business days, contact support and we'll investigate or send a replacement.",Shipping
+Do you ship to PO boxes?,"Yes, standard shipping supports PO boxes. Express shipping requires a physical address.",Shipping
+Can I combine multiple orders into one shipment?,Orders placed within 24 hours of each other can sometimes be combined — contact support before the first order ships to request this.,Shipping
+"The app keeps crashing, what should I do?","Try updating to the latest version first. If it still crashes, clear the app cache in Settings > Storage, or reinstall the app.",Technical
+Why can't I log in even with the correct password?,"This can happen if your account is locked after failed attempts, or if there's a temporary service outage. Check our status page or try resetting your password.",Technical
+"The page won't load, what should I check?","Try refreshing, clearing your browser cache, or switching browsers. If the issue persists across devices, check our status page for outages.",Technical
+Do you have a mobile app?,"Yes, our app is available on iOS and Android. Search for our name in the App Store or Google Play.",Technical
+Why are my changes not saving?,This is often caused by an unstable internet connection. Check your connection and try again; unsaved drafts are auto-saved locally for up to 24 hours.,Technical
+How do I clear my cache?,In most browsers: Settings > Privacy > Clear Browsing Data > select 'Cached images and files'.,Technical
+Is there a dark mode?,"Yes, go to Settings > Appearance > Theme and select Dark Mode.",Technical
+Why is the app running slowly?,"Try closing other open tabs or apps, and ensure you're on the latest version. Large datasets can also slow performance — try filtering your view.",Technical
+Can I use the platform offline?,Limited offline functionality is available in the mobile app; changes sync automatically once you're back online.,Technical
+What browsers are supported?,"We support the latest versions of Chrome, Firefox, Safari, and Edge. Internet Explorer is not supported.",Technical
+How do I export my data?,"Go to Settings > Data > Export. You can export as CSV, JSON, or PDF depending on the data type.",Technical
+Why did I get logged out unexpectedly?,"Sessions expire after 30 days of inactivity, or if you log in from a new device that triggers a security check.",Technical
+Can I recover a deleted file?,Deleted files go to Trash and remain recoverable for 30 days. Go to Trash > Restore.,Technical
+How do I report a bug?,"Go to Help > Report a Bug, or email support with a screenshot and description of the issue.",Technical
+Why am I seeing an error code when uploading files?,This usually means the file exceeds our 25MB limit or is an unsupported format. Check Settings > Storage for accepted file types.,Technical
+Is my data encrypted?,"Yes, all data is encrypted in transit using TLS 1.2+ and at rest using AES-256.",Security
+Do you sell my data to third parties?,"No, we never sell customer data. See our Privacy Policy for full details on data usage.",Security
+How do I report a security vulnerability?,Email our security team directly at security@ourcompany.com. We run a responsible disclosure program with rewards for verified reports.,Security
+Is my payment information stored on your servers?,"No, payment details are handled entirely by our PCI-compliant payment processor and never stored on our servers.",Security
+Can I see who has accessed my account?,"Yes, go to Settings > Security > Login History to see recent access by device, location, and time.",Security
+Do you comply with GDPR?,"Yes, we are fully GDPR compliant. You can request data export or deletion at any time under Settings > Privacy.",Security
+What happens if I suspect unauthorized access?,Immediately change your password and enable two-factor authentication. Contact support to review your account's access logs.,Security
+Are backups encrypted?,"Yes, all backups are encrypted with the same AES-256 standard as live data.",Security
+Can I restrict login to specific IP addresses?,"Yes, this is available on Business and Enterprise plans under Settings > Security > IP Allowlist.",Security
+How often do you run security audits?,We conduct third-party security audits twice a year and continuous automated vulnerability scanning.,Security
+Do you integrate with Slack?,"Yes, go to Settings > Integrations > Slack to connect your workspace and receive notifications.",Integrations
+Can I connect this to Zapier?,"Yes, we have an official Zapier integration supporting most triggers and actions. Search for our app name in Zapier's app directory.",Integrations
+Do you have an API?,"Yes, our REST API is available on Business and Enterprise plans. Documentation is at docs.ourcompany.com/api.",Integrations
+Can I integrate with Google Calendar?,"Yes, go to Settings > Integrations > Calendar and authorize access to sync events automatically.",Integrations
+Do you support webhooks?,"Yes, webhooks can be configured under Settings > Integrations > Webhooks for real-time event notifications.",Integrations
+Is there a Chrome extension?,"Yes, available on the Chrome Web Store — search for our app name.",Integrations
+Can I connect Salesforce?,"Yes, our Salesforce integration is available on Enterprise plans. Contact sales to enable it.",Integrations
+Do you support single sign-on (SSO)?,"Yes, SAML-based SSO is available on Enterprise plans under Settings > Security > SSO.",Integrations
+Can I export data directly to Google Sheets?,"Yes, use our Google Sheets integration under Settings > Integrations, or connect via Zapier.",Integrations
+Is there a Microsoft Teams integration?,"Yes, go to Settings > Integrations > Microsoft Teams to connect and receive channel notifications.",Integrations
+What plans do you offer?,"We offer Free, Pro, Team, and Business plans, each with increasing storage, users, and feature limits. See our Pricing page for full details.",Plans
+What's the difference between Pro and Team plans?,"Pro is for individuals with full feature access; Team adds multi-user collaboration, shared workspaces, and admin controls.",Plans
+Can I switch plans at any time?,"Yes, upgrades apply immediately; downgrades apply at the next billing cycle.",Plans
+Is there a limit on storage?,"Free plans include 2GB, Pro includes 50GB, and Team/Business plans include 250GB+ with add-on options.",Plans
+Do you offer a lifetime plan?,We don't currently offer lifetime plans; all plans are subscription-based.,Plans
+What happens when I hit my storage limit?,"You'll receive a warning at 90% usage. Once full, uploads are paused until you free up space or upgrade.",Plans
+Can I try Business features before upgrading?,"Yes, you can request a 14-day Business trial from Settings > Billing > Request Trial.",Plans
+Is customer support included in all plans?,Email support is included in all plans; Team and Business plans also include live chat support.,Plans
+Do you offer enterprise custom pricing?,"Yes, for teams over 50 users, contact sales for custom Enterprise pricing.",Plans
+What's included in the free plan?,"The free plan includes core features with limited storage (2GB) and up to 1 user, no time limit.",Plans
+Can nonprofits get a custom plan?,"Yes, verified nonprofits can apply for discounted Team plans through Settings > Billing > Discounts.",Plans
+How many projects can I create on the Pro plan?,Pro plans support unlimited projects; the Free plan is limited to 3 active projects.,Plans
+Do unused features roll over if I don't use them?,"No, plan limits (like storage or seats) reset each billing cycle and don't roll over.",Plans
+Can I add extra seats to my Team plan?,"Yes, additional seats can be purchased anytime under Settings > Billing > Add Seats.",Plans
+Is there a mobile-only plan?,"No, all plans include full access across web, desktop, and mobile at the same price.",Plans
+What are your support hours?,"Email support is available 24/7 with a typical response time under 4 hours. Live chat is available Monday-Friday, 9am-6pm EST.",General
+How do I contact sales?,Email sales@ourcompany.com or use the 'Contact Sales' form on our Pricing page.,General
+Do you have a status page for outages?,"Yes, check status.ourcompany.com for real-time uptime and incident updates.",General
+Where can I find your terms of service?,Our Terms of Service are available at ourcompany.com/terms and linked in the footer of every page.,General
+Do you offer onboarding help for new teams?,"Yes, Team and Business plans include a free 30-minute onboarding call with our customer success team.",General
+How do I suggest a new feature?,"Submit ideas through Help > Feature Requests, or vote on existing suggestions from other users.",General
+Is there a community forum?,"Yes, join our community at community.ourcompany.com to ask questions and share tips with other users.",General
+Do you have a changelog?,"Yes, recent updates and releases are listed at ourcompany.com/changelog.",General
+Can I white-label the platform?,White-labeling is available on Enterprise plans. Contact sales to discuss options.,General
+How do I close a support ticket?,"Tickets auto-close after 7 days of inactivity, or you can close it manually from Help > My Tickets.",General
